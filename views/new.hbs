@@ -1,0 +1,19 @@
+{{> header}}
+<div class="shadow p-3 mb-5 bg-white rounded">
+  <form class="form-group" action="/blogs" method="post">
+    <div class="form-group">
+      <input type="text" class="form-control" name="title" placeholder="Title">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="image" placeholder="Image URL">
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" name="body" placeholder="Content Of Blog">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-dark btn-md ">
+    </div>
+  </form>
+</div>
+{{> footer}}

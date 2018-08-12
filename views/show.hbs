@@ -1,0 +1,28 @@
+{{> header}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card mb-4">
+        <h2 class="card-title">{{blog.title}}
+        </h2>
+        <img class="card-img-top img-thumbnail" src="{{blog.image}}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">{{blog.body}}
+          </p>
+          <h2>{{blog.created}}
+          </h2>
+        </div>
+        <form class="delete" action="/blogs/{{blog._id}}?_method=DELETE" method="post">
+          <button  class="btn btn-dark btn-md">Delete
+          </button>
+        </form>
+        <form>
+          <a href="/blogs/{{blog.id}}/edit" class="btn btn-dark btn-md">Edit
+          </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{> footer}}
+​

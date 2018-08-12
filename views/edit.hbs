@@ -1,0 +1,27 @@
+{{> header}}
+<h1>Edit a blog
+</h1>
+<div class="shadow p-3 mb-5 bg-white rounded">
+  <form class="form-group" action="/blogs/{{blog._id}}?_method=PUT" method="post">
+    <div class="form-group">
+      <label>Title
+      </label>
+      <input type="text" class="form-control" name="title" value="{{blog.title}}">
+    </div>
+    <div class="form-group">
+      <label>Image
+      </label>
+      <input type="text" class="form-control" name="image" value="{{blog.image}}">
+    </div>
+    <div class="form-group">
+      <label>Content
+      </label>
+      <textarea class="form-control" name="body">{{blog.body}}
+      </textarea>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-dark btn-md ">
+    </div>
+  </form>
+</div>
+{{> footer}}
