@@ -11,7 +11,7 @@ var blogApp=mongoose.model('blogApp',{
    },
    created:{
      type:Date,
-     default:Date.now
+     default:Date.now 
    }
 });
 module.exports={blogApp};
