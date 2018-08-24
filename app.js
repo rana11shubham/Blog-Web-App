@@ -37,7 +37,6 @@ app.get('/',(req,res)=>{
 res.redirect('/blogs');
 });
 app.get('/blogs',(req,res)=>{
-  console.log(req.user);
 blogApp.find().then((blog)=>{
 res.render('index',{blog,currentUser:req.user});
 },(err)=>{
