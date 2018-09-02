@@ -4,13 +4,14 @@
   <div class="row">
     <div class="col-md-8">
       <div class="card mb-4">
-        <h2 class="card-title"><%blogs.title%>
+        <h2 class="card-title"><%=blogs.title%>
         </h2>
         <img class="card-img-top img-thumbnail" src="<%=blogs.image%>" alt="Card image cap">
         <div class="card-body">
           <p class="card-text"><%=blogs.body%>
           </p>
-          <h2 class="date"><%=blogs.date%>
+          
+          <h2 class="date"><%=blogs.created.toDateString()%>
           </h2>
           <a href="/blogs/<%=blogs._id%>" class="btn btn-dark btn-sm">Read More &rarr;
           </a>

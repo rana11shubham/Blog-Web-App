@@ -1,4 +1,5 @@
 var mongoose=require('mongoose');
+var Schema=mongoose.Schema;
 var blogApp=mongoose.model('blogApp',{
    title:{
      type:String
@@ -9,9 +10,10 @@ var blogApp=mongoose.model('blogApp',{
    body:{
      type:String
    },
+   user:{type:Schema.Types.ObjectId,ref:"User"},
    created:{
      type:Date,
-     default:Date.now 
+     default:Date.now
    }
 });
 module.exports={blogApp};

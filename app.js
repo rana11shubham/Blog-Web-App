@@ -56,14 +56,14 @@ res.render('new');
 });
 });
 app.get('/blogs/:id',(req,res)=>{
-blogApp.findById(req.params.id).then((blog)=>{
-res.render('show',{blog});
+blogApp.findById(req.params.id).populate('user').then((blog)=>{
+res.render('show',{blog,userl:req.user});
 },(err)=>{
 res.redirect('/blogs');
 });
 });
 app.get('/blogs/:id/edit',isLoggedIn,(req,res)=>{
-blogApp.findById(req.params.id).then((blog)=>{
+blogApp.findById(req.params.id).populate('user').then((blog)=>{
 res.render('edit',{blog});
 },(err)=>{
 res.redirect('/blogs');
