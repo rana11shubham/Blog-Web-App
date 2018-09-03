@@ -10,11 +10,12 @@
         <div class="card-body">
           <p class="card-text"><%=blogs.body%>
           </p>
-          
           <h2 class="date"><%=blogs.created.toDateString()%>
           </h2>
+          <% if(currentUser) {%>
           <a href="/blogs/<%=blogs._id%>" class="btn btn-dark btn-sm">Read More &rarr;
           </a>
+        <%}%>
         </div>
       </div>
     </div>

@@ -5,13 +5,13 @@
       <input type="text" class="form-control" name="title" placeholder="Title">
     </div>
     <div class="form-group">
-      By : <input type="hidden" value="<%=user.id%>" class="form-control" name="user"><%=user.username%>
-    </div>
-    <div class="form-group">
       <input type="text" class="form-control" name="image" placeholder="Image URL">
     </div>
     <div class="form-group">
       <textarea class="form-control" name="body" placeholder="Content of blog"></textarea>
+    </div>
+    <div class="form-group">
+       By : <input type="hidden" value="<%=user.id%>" class="form-control" name="user"><%=user.username%>
     </div>
     <div class="form-group">
       <input type="submit" class="btn btn-dark btn-md ">

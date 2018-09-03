@@ -44,7 +44,11 @@ console.log('error');
 });
 });
 app.get('/blogs/new',isLoggedIn,(req,res)=>{
-res.render('new');
+  User.find().then((user)=>{
+res.render('new',{user:req.user});
+},(err)=>{
+  console.log('error');
+});
 });
 app.post('/blogs',(req,res)=>{
 var newBlog=new blogApp(req.body)
@@ -63,7 +67,7 @@ res.redirect('/blogs');
 });
 });
 app.get('/blogs/:id/edit',isLoggedIn,(req,res)=>{
-blogApp.findById(req.params.id).populate('user').then((blog)=>{
+blogApp.findById(req.params.id).then((blog)=>{
 res.render('edit',{blog});
 },(err)=>{
 res.redirect('/blogs');
@@ -112,7 +116,7 @@ app.post('/login',passport.authenticate("local",{
 }),(req,res)=>{
 });
 //Logout Routes
-app.get('/logout',(req,res)=>{
+app.get('/logout',isLoggedIn,(req,res)=>{
   req.logout();
   res.redirect('/blogs');
 });

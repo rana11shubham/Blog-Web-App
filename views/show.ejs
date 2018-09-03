@@ -9,24 +9,23 @@
         <div class="card-body">
           <p class="card-text"><%=blog.body%>
           </p>
-          <%=blog.user.username%>
+          <h4><%=blog.user.username%></h4>
           <h2 class="date"><%=blog.created.toDateString()%>
           </h2>
         </div>
         <%
-        if(userl===blog.user.username)
+        if(userl.username===blog.user.username)
         {%>
         <form class="delete" action="/blogs/<%=blog._id%>?_method=DELETE" method="post">
           <button  class="btn btn-dark btn-sm delete">Delete
           </button>
           <a href="/blogs/<%=blog._id%>/edit" class="btn btn-dark btn-sm edit">Edit
           </a>
-        <%}%>
         </form>
+        <%}%>
       </div>
     </div>
   </div>
 </div>
-
 <% include ./partials/footer %>
 ​
