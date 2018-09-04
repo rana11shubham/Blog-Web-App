@@ -10,6 +10,7 @@ const methodOverride=require('method-override');
 var {blogApp}=require('./server/models/Blog.js');
 var User=require('./server/models/user.js');
 var app=express();
+const port=process.env.PORT||3000;
 //app.set('view engine','hbs');
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
@@ -128,6 +129,6 @@ function isLoggedIn(req,res,next){
   res.redirect('/login');
 }
 
-app.listen(3000,()=>{
-console.log('Starting the server on port 3000');
+app.listen(port,()=>{
+console.log(`Starting the server on port ${port}`);
 })
