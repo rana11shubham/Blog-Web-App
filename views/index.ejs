@@ -2,11 +2,17 @@
 <% blog.forEach(function(blogs){ %>
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 ">
       <div class="card mb-4">
         <h2 class="card-title"><%=blogs.title%>
         </h2>
-        <img class="card-img-top img-thumbnail" src="<%=blogs.image%>" alt="Card image cap">
+        <%
+        if(blogs.image!=="")
+        {
+          %>
+          <img class="card-img-top img-thumbnail" src="<%=blogs.image%>" alt="Card image cap">
+          <%
+        }%>
         <div class="card-body">
           <p class="card-text"><%=blogs.body%>
           </p>
