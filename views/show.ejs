@@ -5,7 +5,12 @@
       <div class="card mb-4">
         <h2 class="card-title"><%=blog.title%>
         </h2>
+        <%
+          if(blog.image!=='')
+          { %>
         <img class="card-img-top img-thumbnail" src="<%=blog.image%>" alt="Card image cap">
+          <% }
+          %>
         <div class="card-body">
           <p class="card-text"><%=blog.body%>
           </p>

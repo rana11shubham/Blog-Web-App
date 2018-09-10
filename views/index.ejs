@@ -14,7 +14,7 @@
           <%
         }%>
         <div class="card-body">
-          <p class="card-text"><%=blogs.body%>
+          <p class="card-text"><%=blogs.body.substring(0,100);%>
           </p>
           <h2 class="date"><%=blogs.created.toDateString()%>
           </h2>
