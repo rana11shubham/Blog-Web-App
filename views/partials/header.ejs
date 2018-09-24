@@ -34,9 +34,22 @@
                <a class="navbar-brand" href="/login">Login
                </a>
                <%} else { %>
+               <a class="navbar-brand" href="/login" onclick=del();>Delete Account
+               </a>
                <a class="navbar-brand" href="/logout">Logout
                </a>
                <%}%>
             </form>
          </div>
       </nav>
+      <div class="container">
+        <%if(error && error.length>0){%>
+      <div class="alert alert-danger" role="alert">
+        <h4><%=error%></h2>
+      </div>
+        <%} else if(success && success.length>0){%>
+      <div class="alert alert-success" role="alert">
+        <h4><%=success%></h2>
+      </div>
+      <%}%>
+    </div>

@@ -4,18 +4,20 @@
   "description": "A simple Blog App with CRUD and based on node.js and mongoDB.\r ![1](https://user-images.githubusercontent.com/36005170/44048034-de65970c-9f4d-11e8-98e1-7d3100909065.PNG)",
   "main": "app.js",
   "scripts": {
-    "start":"node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines":{
+  "engines": {
     "node": "10.9.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-sanitizer": "^1.0.4",
     "express-session": "^1.15.6",
     "hbs": "^4.0.1",
     "method-override": "^3.0.0",
