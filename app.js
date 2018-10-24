@@ -58,9 +58,9 @@ res.render('new',{user:req.user});
 });
 });
 app.post('/blogs',isLoggedIn,(req,res)=>{
-  req.body.body.sanitized = req.sanitize(req.body.body.propertyToSanitize);
-console.log(req.body.body);
-var newBlog=new blogApp(req.body,{body:req.body.body.sanitized});
+  //req.body.body = req.sanitize(req.body.body);
+//console.log(req.body.body);
+var newBlog=new blogApp(req.body);
 newBlog.save().then((doc)=>{
 req.flash('success','Successfully added a new blog!');
 res.redirect('/blogs');
@@ -115,15 +115,15 @@ app.post('/register',(req,res)=>{
   var newUser= new User({username:req.body.username});
   User.register(newUser,req.body.password,(err,User)=>{
     if(err){
-      req.flash('error',err.message);
+     req.flash('error',err.message);
       console.log(err);
       return res.render("register");
     }
     passport.authenticate("local")(req,res,()=>{
-    req.flash('success','Welcome to Blogger '+ user.username);
     res.redirect("/blogs");
+     req.flash('success','Welcome to Blogger '+ user.username);
   });
-});
+})
 });
 // Login Routes
 app.get('/login',(req,res)=>{
@@ -140,6 +140,16 @@ app.get('/logout',isLoggedIn,(req,res)=>{
   req.logout();
   req.flash("success","Logged you out!");
   res.redirect('/blogs');
+});
+app.get("/deluser",isLoggedIn,function(req,res){
+  blogApp.deleteMany({user:req.user.id},function(err){
+    if(err) return handleError(err);
+  });
+  User.deleteOne({ username: req.user.username }, function (err) {
+  if (err) return handleError(err);
+  req.logout();
+  res.redirect('/blogs');
+});
 });
 
 function isLoggedIn(req,res,next){
